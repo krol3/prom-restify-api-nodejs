@@ -1,0 +1,32 @@
+{
+  "name": "restify-api",
+  "version": "1.0.0",
+  "description": "simple demo restify api in nodejs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krol3/restify-api.git"
+  },
+  "author": "krol  <guillen.carolina@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krol3/restify-api/issues"
+  },
+  "homepage": "https://github.com/krol3/restify-api#readme",
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "node-config-manager": "^2.0.0",
+    "restify": "^7.2.3",
+    "prom-client": "^11.2.0",
+    "response-time": "^2.3.2",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-jshint": "^2.1.0"
+  }
+}

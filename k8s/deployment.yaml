@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prom-restify-api-svc
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: prom-restify-api
+    tier: backend
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: prom-restify-api
+  labels:
+    app: prom-restify-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prom-restify-api
+      tier: backend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: prom-restify-api
+        tier: backend
+    spec:
+      containers:
+      - image:  krol/prom-restify-api:dev
+        name: server-go
+        ports:
+        - containerPort: 8080
+          name: prom-restify
+
+
